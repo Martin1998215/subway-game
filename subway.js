@@ -24,21 +24,14 @@ a.addEventListener("click", function () {
 b.addEventListener("click", function () {
   moveRight()
 });
-//event to occur when arrow keys are punched
-// window.addEventListener('keydown', function (event) {
-//   // if left arrow is clicked, call the moveLeft function
-//   if (event.key === 'ArrowLeft') { moveLeft() }
-//   // if right arrow is clicked, call the moveRight function
-//   if (event.key === 'ArrowRight') { moveRight() }
-// });
+
 
 // left move function
 
 function moveLeft() {
   let left =
     parseInt(window.getComputedStyle(player).getPropertyValue('left'));
-  left -= 60;
-  console.log(left);
+  left -= 50;
   if (left >= 0) {
     player.style.left = `${left}px`;
   }
@@ -49,8 +42,7 @@ function moveLeft() {
 function moveRight() {
   let left =
     parseInt(window.getComputedStyle(player).getPropertyValue('left'));
-  console.log(left)
-  left += 60;
+  left += 50;
   if (left < 240) {
     player.style.left = `${left}px`;
   }
@@ -87,6 +79,9 @@ window.addEventListener('animationiteration', function () {
 
 });
 
+
+
+
 setInterval(function () {
   let playerLeft =
     parseInt(window.getComputedStyle(player).getPropertyValue('left'));
@@ -94,10 +89,11 @@ setInterval(function () {
     parseInt(window.getComputedStyle(enemy).getPropertyValue('left'));
   let enemyTop =
     parseInt(window.getComputedStyle(enemy).getPropertyValue('top'));
-  if (playerLeft == enemyLeft && enemyTop > 280 && enemyTop < 340) {
+  if (playerLeft == enemyLeft && enemyTop > 300 && enemyTop < 350) {
     enemy.style.animation = 'none';
     clearInterval(x);
     alert(`Game Over!!!\n Results \n Score: ${scoreCounter} \n Time: ${timeCounter}s`);
+    alert("Refresh Browser to Restart!!");
   }
 
 }, 10);
